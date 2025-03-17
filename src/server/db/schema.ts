@@ -1,7 +1,7 @@
 import { integer, sqliteTable, text, primaryKey } from "drizzle-orm/sqlite-core"
-import { drizzle } from "drizzle-orm/libsql"
+
 import type { AdapterAccountType } from "next-auth/adapters"
-import { db } from "." 
+
  
 export const users = sqliteTable("user", {
   id: text("id")
@@ -81,3 +81,17 @@ export const authenticators = sqliteTable(
     }),
   })
 )
+
+export const posts = sqliteTable("post", {
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  name: text("name").notNull(),
+  createdAt: integer("createdAt", { mode: "timestamp_ms" })
+    .$defaultFn(() => new Date())
+    .notNull(),
+  updatedAt: integer("updatedAt", { mode: "timestamp_ms" })
+    .$defaultFn(() => new Date())
+    .notNull(),
+  userId: text("userId").references(() => users.id, { onDelete: "cascade" }),
+})

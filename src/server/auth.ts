@@ -10,7 +10,7 @@ export const {
 	auth,
 } = NextAuth({
 	trustHost: true,
-	adapter: DrizzleAdapter(db),
+	adapter: DrizzleAdapter(db()),
 	providers: [
 		Google
 	],

@@ -26,6 +26,11 @@
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@t3-oss/env-nextjs": "^0.11.1",
+    "@tanstack/react-query": "^5.68.0",
+    "@trpc/client": "^11.0.0-rc.833",
+    "@trpc/next": "^10.45.2",
+    "@trpc/react-query": "^11.0.0-rc.833",
+    "@trpc/server": "^11.0.0-rc.833",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "drizzle-kit": "^0.24.2",
@@ -35,12 +40,14 @@
     "next-auth": "^5.0.0-beta.20",
     "react": "^18",
     "react-dom": "^18",
+    "server-only": "^0.0.1",
+    "superjson": "^2.2.2",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "1",
+    "@cloudflare/next-on-pages": "^1.13.10",
     "@cloudflare/workers-types": "^4.20240903.0",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -52,6 +59,6 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5",
     "vercel": "^37.3.0",
-    "wrangler": "^3.74.0"
+    "wrangler": "^4.0.0"
   }
 }
