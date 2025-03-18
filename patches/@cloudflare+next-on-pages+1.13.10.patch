@@ -1,0 +1,50 @@
+diff --git a/node_modules/@cloudflare/next-on-pages/dist/index.js b/node_modules/@cloudflare/next-on-pages/dist/index.js
+index e4bb0c2..25d4136 100644
+--- a/node_modules/@cloudflare/next-on-pages/dist/index.js
++++ b/node_modules/@cloudflare/next-on-pages/dist/index.js
+@@ -5099,35 +5099,7 @@ var parseJSON = (input) => {
+     throw new Error(`Failed to parse stdout as JSON, got: ${input}`);
+   }
+ };
+-var Command = class {
+-  shell;
+-  cmd;
+-  cwd;
+-  interactive;
+-  exec;
+-  runningState;
+-  pipe_logs;
+-  exit_expected;
+-  retCode;
+-  promiseResolve;
+-  promiseReject;
+-  promise;
+-  timer;
+-  stdout;
+-  stderr;
+-  constructor({
+-    cwd,
+-    shell,
+-    cmd,
+-    interactive,
+-    pipe_logs = false,
+-    exit_expected = false
+-  }) {
+-    this.shell = shell;
+-    this.cmd = cmd;
+-    this.cwd = cwd;
+-    this.interactive = interactive;
+-    this.exit_expected = exit_expected;
++var Command = class { shell; cmd; cwd; interactive; exec; runningState; pipe_logs; exit_expected; retCode; promiseResolve; promiseReject; promise; timer; stdout; stderr; constructor({ cwd, shell, cmd, interactive, pipe_logs = false, exit_expected = false }) { this.shell = shell; this.cmd = cmd; this.cwd = '/mnt/' + cwd.split('\:')[0].toLowerCase() + cwd.split(':')[1].replace(/\\/g, '/'); this.interactive = interactive; this.exit_expected = exit_expected;
+     this.exec = `cd "${cwd}" && 
+ ${this.cmd};echo __END_OF_COMMAND_[$?]__
+ `;
+@@ -7116,7 +7088,7 @@ async function getVercelBuildChildProcess(pm, additionalArgs = []) {
+   if (!spawnCmd) {
+     throw new Error("Error: Failed to generate vercel build command");
+   }
+-  return (0, import_child_process2.spawn)(spawnCmd.cmd, spawnCmd.cmdArgs);
++  return (0, import_child_process2.spawn)(spawnCmd.cmd, spawnCmd.cmdArgs, {shell: true});
+ }
+ async function deleteNextTelemetryFiles(outputDir) {
+   const nextDir = (0, import_path5.resolve)(outputDir, "_next");
