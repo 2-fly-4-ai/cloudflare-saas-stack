@@ -8,9 +8,6 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Configure for Cloudflare Pages
-  output: 'standalone',
-};
+const nextConfig = {};
 
 export default nextConfig;
