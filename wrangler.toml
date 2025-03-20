@@ -11,3 +11,8 @@ binding = "DATABASE"
 database_name = "cloudflare-saas-stack-db"
 database_id = "8e17dd99-b552-4e61-b5d4-84227ff4b14d"
 migrations_dir = "./drizzle"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "cloudflare-saas-storage"
+preview_bucket_name = "cloudflare-saas-storage-dev"
